@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<style>
+    .manish{
+        font-size: small;
+        line-height: 13px;
+    }
+</style>
+{% endblock %}
+{% block myblock %}
+<div class="row" style="background-color: rgb(227, 229, 232);">
+    {% for i in data %}
+    <div class="col-md-2 m-2 p-2" style="background-color: white; border-radius: 5px;">
+        <img src="{{i.links.mission_patch_small}}" alt="" height="150px" width="100%"
+            style="background-color: rgb(227, 229, 232);">
+        <p style="color: rgb(124, 161, 217);" class="manish"><b>{{i.mission_name}} #{{i.flight_number}}</b></p>
+
+        <p class="manish"><b>Mission ids: </b>{{i.mission_id}}</p>
+
+        <p class="manish"><b>Launch Year: </b>{{i.launch_year}}</p>
+        <p class="manish"><b>Successful Launch: </b>{{i.launch_success}}</p>
+
+
+        {% for k in i.rocket.first_stage.cores %}
+        <p class="manish"><b>Successful Landing: </b>{{k.land_success}}</p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <div class="col-md-12 text-center">
+        <h5>Developed by: Manish kumar</h5>
+    </div>
+</div>
+
+{% endblock %}
+
+
+                
+        

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        .space {
+            line-height: 10px;
+
+        }
+
+        .m1 {
+            font-size: 15px;
+            background-color: rgb(154, 252, 101);
+        }
+    </style>
+    {% block head %}
+
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 " style="background-color: rgb(227, 229, 232);">
+                <h5><b>SpaceX Launch Programs</b></h5>
+            </div>
+
+            <div class="col-md-2 p-2" style="background-color: rgb(227, 229, 232);">
+                <div style="background-color: white;">
+
+                    <p class="space p-2"><b>Filters</b></p>
+                    <h5 class="text-center space">Launch Year</h5>
+                    <hr>
+                    <div style="text-align: center;">
+                        <a href="{% url 'index' %}?year=2006"><button class="btn m-2 m1">2006</button></a>
+                        <a href="{% url 'index' %}?year=2007"><button class="btn m-2 m1">2007</button></a>
+                        <a href="{% url 'index' %}?year=2008"><button class="btn m-2 m1">2008</button></a>
+                        <a href="{% url 'index' %}?year=2009"><button class="btn m-2 m1">2009</button></a>
+                        <a href="{% url 'index' %}?year=2010"><button class="btn m-2 m1">2010</button></a>
+                        <a href="{% url 'index' %}?year=2011"><button class="btn m-2 m1">2011</button></a>
+                        <a href="{% url 'index' %}?year=2012"><button class="btn m-2 m1">2012</button></a>
+                        <a href="{% url 'index' %}?year=2013"><button class="btn m-2 m1">2013</button></a>
+                        <a href="{% url 'index' %}?year=2014"><button class="btn m-2 m1">2014</button></a>
+                        <a href="{% url 'index' %}?year=2015"><button class="btn m-2 m1">2015</button></a>
+                        <a href="{% url 'index' %}?year=2016"><button class="btn m-2 m1">2016</button></a>
+                        <a href="{% url 'index' %}?year=2017"><button class="btn m-2 m1">2017</button></a>
+                        <a href="{% url 'index' %}?year=2018"><button class="btn m-2 m1">2018</button></a>
+                        <a href="{% url 'index' %}?year=2019"><button class="btn m-2 m1">2019</button></a>
+                        <a href="{% url 'index' %}?year=2020"><button class="btn m-2 m1">2020</button></a>
+
+                        <h5 class="mt-4" style="font-size: 15px; line-height: 0px;">Successful Launch</h5>
+                        <hr>
+
+                        <a href="{% url 'index' %}?launch_success=true"><button
+                                class="btn mb-3 m1 m-2">True</button></a>
+                        <a href="{% url 'index' %}?launch_success=false"><button
+                                class="btn mb-3 m1 m-2">False</button></a>
+
+
+                        <h5 style="font-size: 15px;">Successful Landing</h5>
+                        <hr>
+                        <a href="{% url 'index' %}?land_success=true"><button class="btn m1 m-2">True</button></a>
+                        <a href="{% url 'index' %}?land_success=false"><button class="btn m1 m-2">False</button></a>
+                    </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-10">
+                    {% block myblock %}
+
+                    {% endblock %}
+                </div>
+
+            </div>
+        </div>
+</body>
+
+</html>
